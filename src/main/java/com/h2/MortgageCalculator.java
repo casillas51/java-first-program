@@ -13,17 +13,13 @@ public class MortgageCalculator {
     private double monthlyPayment;
 
     public static void main (String[] args) {
-        try {
-            long loanAmount = Utilities.getLongValue(args[0]);
-            int termInYears = Utilities.getIntValue(args[1]);
-            float annualRate = Utilities.getFloatValue(args[2]);
+        long loanAmount = Utilities.getLongValue(args[0]);
+        int termInYears = Utilities.getIntValue(args[1]);
+        float annualRate = Utilities.getFloatValue(args[2]);
 
-            MortgageCalculator calculator = new MortgageCalculator(loanAmount, termInYears, annualRate);
-            calculator.calculateMonthlyPayment();
-            System.out.println(calculator.toString());
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
-        }
+        MortgageCalculator calculator = new MortgageCalculator(loanAmount, termInYears, annualRate);
+        calculator.calculateMonthlyPayment();
+        System.out.println(calculator.toString());
     }
 
     public MortgageCalculator(long loanAmount, int termInYears, float annualRate) {

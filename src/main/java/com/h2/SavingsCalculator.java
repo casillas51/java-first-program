@@ -12,28 +12,24 @@ public class SavingsCalculator {
     private float[] debits;
 
     public static void main (String[] args) {
-        try {
-            String[] creditsAsString = args[0].split(",");
-            String[] debitsAsString = args[1].split(",");
-            float[] credits = new float[creditsAsString.length];
-            float[] debits = new float[debitsAsString.length];
+        String[] creditsAsString = args[0].split(",");
+        String[] debitsAsString = args[1].split(",");
+        float[] credits = new float[creditsAsString.length];
+        float[] debits = new float[debitsAsString.length];
 
-            for (int i = 0; i < creditsAsString.length; i++) {
-                credits[i] = Utilities.getFloatValue(creditsAsString[i]);
-            }
-            for (int i = 0; i < debitsAsString.length; i++) {
-                debits[i] = Utilities.getFloatValue(debitsAsString[i]);
-            }
-
-            SavingsCalculator calculator = new SavingsCalculator(credits, debits);
-            float netSavings = calculator.calculate();
-
-            System.out.println("Net Savings = " + netSavings
-                    + ", remaining days in month = "
-                    + remainingDaysInMonth(LocalDate.now()));
-        } catch (IllegalArgumentException e) {
-            System.out.println(e.getMessage());
+        for (int i = 0; i < creditsAsString.length; i++) {
+            credits[i] = Utilities.getFloatValue(creditsAsString[i]);
         }
+        for (int i = 0; i < debitsAsString.length; i++) {
+            debits[i] = Utilities.getFloatValue(debitsAsString[i]);
+        }
+
+        SavingsCalculator calculator = new SavingsCalculator(credits, debits);
+        float netSavings = calculator.calculate();
+
+        System.out.println("Net Savings = " + netSavings
+                + ", remaining days in month = "
+                + remainingDaysInMonth(LocalDate.now()));
     }
 
     public SavingsCalculator(float[] credits, float[] debits) {
