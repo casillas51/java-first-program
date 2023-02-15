@@ -1,5 +1,6 @@
 import com.h2.BestLoanRates;
 import com.h2.MortgageCalculator;
+import com.h2.SavingsCalculator;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -50,6 +51,10 @@ public class Finance {
             case BEST_LOAN_RATES:
                 System.out.println("Finding best loan rates ...");
                 BestLoanRates.main(arguments);
+                return;
+            case SAVINGS_CALCULATOR:
+                System.out.println("Finding your net savings ...");
+                SavingsCalculator.main(arguments);
                 return;
             case MORTGAGE_CALCULATOR:
                 System.out.println("Finding your monthly payment ...");
